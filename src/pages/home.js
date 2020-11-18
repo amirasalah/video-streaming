@@ -1,11 +1,16 @@
 import React from 'react'
-import FaqsContainer from '../containers/faqs'
-import { FooterContainer } from '../containers/footer'
-import { JumbotronContainer } from '../containers/jumbotron'
+import { OptForm } from '../components'
+import { FaqsContainer } from '../containers'
+import { FooterContainer } from '../containers'
+import { HeaderContainer } from '../containers'
+import { JumbotronContainer } from '../containers'
 
 const Home = () => {
     return (
         <>
+            <HeaderContainer>
+                <OptForm />
+            </HeaderContainer>
             <JumbotronContainer />
             <FaqsContainer />
             <FooterContainer />
