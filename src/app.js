@@ -1,15 +1,15 @@
 import React from 'react'
-import FaqsContainer from './containers/faqs'
-import { FooterContainer } from './containers/footer'
-import { JumbotronContainer } from './containers/jumbotron'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import * as ROUTES from './constants/routes'
+import Home from './pages/home'
 
 const App = () => {
     return (
-        <>
-            <JumbotronContainer />
-            <FaqsContainer />
-            <FooterContainer />
-        </>
+        <Router>
+            <Route exact path={ROUTES.HOME}>
+                <Home />
+            </Route>
+        </Router>
     )
 }
 export default App
