@@ -4,6 +4,7 @@ import 'firebase/auth'
 // import { seedDatabase } from '../seed'
 
 const config = {
+    apiKey: 'AIzaSyAt36iIfnXVvNdybwKpEyexdOKYWZnxJ4U',
     authDomain: 'videostreamer-6379a.firebaseapp.com',
     databaseURL: 'https://videostreamer-6379a.firebaseio.com',
     projectId: 'videostreamer-6379a',

@@ -1,18 +1,41 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { Form } from '../components'
 import { HeaderContainer } from '../containers'
 import { FooterContainer } from '../containers'
+import { FireBaseContext } from '../context/firebase'
+import * as ROUTES from '../constants/routes'
 
 const SignIn = () => {
+    const { firebase } = React.useContext(FireBaseContext)
+    const history = useHistory()
     const [emailAddress, setEmailAddress] = React.useState('')
     const [password, setPassword] = React.useState('')
-    // const [error, setError] = React.useState('')
+    const [error, setError] = React.useState('')
+
+    const handleSignIn = event => {
+        event.preventDefault()
+        return firebase
+            .auth()
+            .signInWithEmailAndPassword(emailAddress, password)
+            .then(() => {
+                history.push(ROUTES.BROWSE)
+            })
+            .catch(error => {
+                setEmailAddress('')
+                setPassword('')
+                setError(error)
+            })
+    }
+
+    const isInvalid = emailAddress === '' || password === ''
     return (
         <>
             <HeaderContainer>
                 <Form>
                     <Form.Title>Sign In</Form.Title>
-                    <Form.Base method='POST'>
+                    {error && <Form.Error>{error.message}</Form.Error>}
+                    <Form.Base onSubmit={handleSignIn} method='POST'>
                         <Form.Input
                             placeholder='Email address'
                             value={emailAddress}
@@ -27,17 +50,12 @@ const SignIn = () => {
                             placeholder='Password'
                             onChange={({ target }) => setPassword(target.value)}
                         />
-                        <Form.Submit
-                            // disabled={isInvalid}
-                            type='submit'
-                            data-testid='sign-in'
-                        >
+                        <Form.Submit disabled={isInvalid} type='submit'>
                             Sign In
                         </Form.Submit>
                     </Form.Base>
-
                     <Form.Text>
-                        New to Netflix?{' '}
+                        New to Netflix? {''}
                         <Form.Link to='/signup'>Sign up now.</Form.Link>
                     </Form.Text>
                     <Form.TextSmall>
