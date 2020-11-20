@@ -39,6 +39,7 @@ const SignIn = () => {
                         <Form.Input
                             placeholder='Email address'
                             value={emailAddress}
+                            type='email'
                             onChange={({ target }) =>
                                 setEmailAddress(target.value)
                             }
