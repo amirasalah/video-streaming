@@ -20,7 +20,7 @@ const useContent = target => {
                 setContent(allContent)
             })
             .catch(err => {
-                console.log(err.message)
+                throw err
             })
     }, [target])
     return {
