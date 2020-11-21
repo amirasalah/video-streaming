@@ -1,6 +1,7 @@
 import React from 'react'
+import SelectProfileContainer from './profiles'
 
 const BrowseContainer = ({ slides }) => {
-    return <div></div>
+    return <SelectProfileContainer></SelectProfileContainer>
 }
 export default BrowseContainer
