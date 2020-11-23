@@ -8,7 +8,7 @@ import { useAuthListener } from './hooks'
 import { Home, Browse, SignIn, SignUp } from './pages'
 
 const App = () => {
-    const user = useAuthListener()
+    const { user } = useAuthListener()
     return (
         <Router>
             <Switch>

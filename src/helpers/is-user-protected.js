@@ -10,6 +10,7 @@ export const IsUserProtected = ({ user, children, ...restProps }) => {
                     return children
                 }
                 if (!user) {
+                    console.log('eee')
                     return (
                         <Redirect
                             to={{
@@ -19,6 +20,7 @@ export const IsUserProtected = ({ user, children, ...restProps }) => {
                         />
                     )
                 }
+                return null
             }}
         />
     )
