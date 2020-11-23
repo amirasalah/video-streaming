@@ -2,6 +2,7 @@ import React from 'react'
 import SelectProfileContainer from './profiles'
 import { FireBaseContext } from '../context/firebase'
 import { Loading } from '../components'
+import { Header } from '../components'
 
 const BrowseContainer = ({ slides }) => {
     const [profile, setProfile] = React.useState({})
@@ -16,9 +17,16 @@ const BrowseContainer = ({ slides }) => {
     }, [profile.displayName])
 
     return profile.displayName ? (
-        loading ? (
-            <Loading src={user.photoURL} />
-        ) : null
+        <>
+            {loading ? (
+                <Loading src={user.photoURL} />
+            ) : (
+                <Loading.ReleaseBody />
+            )}
+            <Header src='joker1'>
+                <p>Hello!!</p>
+            </Header>
+        </>
     ) : (
         <SelectProfileContainer user={user} setProfile={setProfile} />
     )
