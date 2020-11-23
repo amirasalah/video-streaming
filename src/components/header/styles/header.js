@@ -4,7 +4,8 @@ import { Link as ReachRouterLink } from 'react-router-dom'
 export const Background = styled.div`
     display: flex;
     flex-direction: column;
-    background: url(${({ src }) => src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'})
+    background: url(${({ src }) =>
+            src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'})
         top left / cover no-repeat;
 
     @media (max-width: 1100px) {
@@ -29,7 +30,6 @@ export const Container = styled.div`
         margin: 0 30px;
     }
 `
-
 export const Link = styled.p`
     color: #fff;
     text-decoration: none;
